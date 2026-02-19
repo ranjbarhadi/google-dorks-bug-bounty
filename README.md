@@ -73,7 +73,7 @@ site:example.com ext:doc ext:docx ext:odt ext:odf ext:rtf ext:sxw ext:osw | ext:
 ### Web Services and APIs
 
 ```
-site: example.com ext:action | ext:struts | ext: do
+site:example.com ext:action | ext:struts | ext: do
 ```
 
 ### Web Services and APIs

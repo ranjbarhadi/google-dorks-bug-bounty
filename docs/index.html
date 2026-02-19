@@ -145,6 +145,45 @@
         max-width: 300px;
       }
 
+      .upload-area {
+        margin-top: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        color: #888;
+        font-size: 0.9em;
+      }
+
+      .upload-btn {
+        display: inline-block;
+        padding: 7px 16px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.04);
+        color: #aaa;
+        cursor: pointer;
+        font-size: 0.9em;
+        transition:
+          border-color 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .upload-btn:hover {
+        border-color: var(--accent-color);
+        color: var(--accent-color);
+      }
+
+      #fileInput {
+        display: none;
+      }
+
+      #uploadStatus {
+        font-size: 0.85em;
+        color: var(--accent-color);
+        min-height: 1.2em;
+      }
+
       @media (max-width: 768px) {
         body {
           padding: 20px;
@@ -188,6 +227,12 @@
           placeholder="example.com"
           oninput="updateDomain()"
         />
+        <div class="upload-area">
+          <span>or</span>
+          <label class="upload-btn" for="fileInput">Upload domain list</label>
+          <input type="file" id="fileInput" accept=".txt,.csv,.text" />
+          <span id="uploadStatus"></span>
+        </div>
       </div>
 
       <div id="tooltip" class="hidden">
@@ -239,6 +284,31 @@
     <script>
       const domainInput = document.getElementById("domainInput");
       const tooltip = document.getElementById("tooltip");
+      const fileInput = document.getElementById("fileInput");
+      const uploadStatus = document.getElementById("uploadStatus");
+
+      fileInput.addEventListener("change", function () {
+        const file = this.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const lines = e.target.result
+            .split(/\r?\n/)
+            .map((l) => l.trim())
+            .filter((l) => l.length > 0 && !l.startsWith("#"));
+
+          if (lines.length === 0) {
+            uploadStatus.textContent = "No domains found in file.";
+            return;
+          }
+
+          domainInput.value = lines.join(", ");
+          uploadStatus.textContent = `${lines.length} domain${lines.length > 1 ? "s" : ""} loaded`;
+          updateDomain();
+        };
+        reader.readAsText(file);
+      });
 
       domainInput.addEventListener("mouseover", function () {
         tooltip.style.display = "block";

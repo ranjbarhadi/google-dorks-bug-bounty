@@ -49,67 +49,67 @@ site:example.com ext:xml ext:conf ext:cnf ext:rea ext:inf ext:rdo ext:cfa| ext:t
 ### db
 
 ```
-site:domain.tld ext:sql | ext:dbf | ext:mdb | ext:log | ext:sqlitedb | ext:sqlite3 | ext:db | ext:sql.gz | ext:sql.zip
+site:example.com ext:sql | ext:dbf | ext:mdb | ext:log | ext:sqlitedb | ext:sqlite3 | ext:db | ext:sql.gz | ext:sql.zip
 ```
 
 ### Backup Files
 
 ```
-site:domain.tld ext:bkf | ext:bkp | ext:bak | ext:old | ext: backup
+site:example.com ext:bkf | ext:bkp | ext:bak | ext:old | ext: backup
 ```
 
 ### Dorks that work better w/ domain
 
 ```
-site:domain.tld inurl:login | inurl:signin | intitle:Login | intitle: signin | inurl:auth
+site:example.com inurl:login | inurl:signin | intitle:Login | intitle: signin | inurl:auth
 ```
 
 ### Documents
 
 ```
-site:domain.tld ext:doc ext:docx ext:odt ext:odf ext:rtf ext:sxw ext:osw | ext:opt ext:potx ext:oos ext: csy
+site:example.com ext:doc ext:docx ext:odt ext:odf ext:rtf ext:sxw ext:osw | ext:opt ext:potx ext:oos ext: csy
 ```
 
 ### Web Services and APIs
 
 ```
-site: domain.tld ext:action | ext:struts | ext: do
+site: example.com ext:action | ext:struts | ext: do
 ```
 
 ### Web Services and APIs
 
 ```
-site:domain.tld filetype:wsdl | filetype:WSDL | ext:svc | inurl:wsdl | Filetype: ?wsdl | inurl:asmx?wsdl | inurl:jws?wsdl | intitle:_vti_bin/site:domain.tld inurl:_vti_bin | inurl:service | inurl:api | inurl:soap | inurl:rest | inurl:v1 | inurl:v2 | inurl:v3
+site:example.com filetype:wsdl | filetype:WSDL | ext:svc | inurl:wsdl | Filetype: ?wsdl | inurl:asmx?wsdl | inurl:jws?wsdl | intitle:_vti_bin/site:example.com inurl:_vti_bin | inurl:service | inurl:api | inurl:soap | inurl:rest | inurl:v1 | inurl:v2 | inurl:v3
 ```
 
 ### Config
 
 ```
-site:domain.tld filetype:config
+site:example.com filetype:config
 ```
 
 ### Subdomains
 
 ```
-site:*.domain.tld
+site:*.example.com
 ```
 
 ### Wildcard Subdomains
 
 ```
-site:*.*.domain.tld
+site:*.*.example.com
 ```
 
 # links and titles containing domain
 
 ```
-Linke: domain.tld
+Linke: example.com
 ```
 
 # inurl and intitle containing domain defaults
 
 ```
-site:.domain.tld intitle: "Welcome to Nginx"
+site:.example.com intitle: "Welcome to Nginx"
 ```
 
 ### API Endpoints

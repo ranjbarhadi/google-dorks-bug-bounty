@@ -2,25 +2,30 @@
 
 A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
 
-[Live Tool](https://taksec.github.io/google-dorks-bug-bounty/)
+[Live Tool](https://github.com/ranjbarhadi/google-dorks-bug-bounty/)
 
-[![tool screenshot](https://github.com/TakSec/google-dorks-bug-bounty/assets/27094033/3ff009d7-f402-4eb2-8321-ce22eeeb5605)](https://taksec.github.io/google-dorks-bug-bounty/)
+[![tool screenshot](https://github.com/ranjbarhadi/google-dorks-bug-bounty/assets/27094033/3ff009d7-f402-4eb2-8321-ce22eeeb5605)](https://taksec.github.io/google-dorks-bug-bounty/)
 
-[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec)](https://twitter.com/TakSec)
 </p>
 
 ---
 
-### Broad domain search w/ negative search <!--omit-->
+### Broad domain search w/ negative search
 
 ```
 site:example.com -www -shop -share -ir -mfa
 ```
 
-### PHP extension w/ parameters
+### Looking for ? in url
 
 ```
-site:example.com ext:php inurl:?
+site:example.com inurl:?
+```
+
+### Looking for & in url
+
+```
+site:example.com inurl:&
 ```
 
 ### API Endpoints
@@ -253,7 +258,6 @@ intext:"Powered by" & intext:Drupal & inurl:user
 ```
 site:*/joomla/login
 ```
-
 
 ---
 

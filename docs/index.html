@@ -184,6 +184,34 @@
         min-height: 1.2em;
       }
 
+      .open-all-btn {
+        display: block;
+        margin: 0 auto 30px auto;
+        padding: 10px 28px;
+        background: transparent;
+        border: 1px solid var(--accent-color);
+        color: var(--accent-color);
+        border-radius: 4px;
+        font-size: 1em;
+        cursor: pointer;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      .open-all-btn:hover {
+        background: var(--accent-color);
+        color: #111;
+      }
+
+      #popupWarning {
+        text-align: center;
+        color: #f97316;
+        font-size: 0.85em;
+        margin-bottom: 10px;
+        display: none;
+      }
+
       @media (max-width: 768px) {
         body {
           padding: 20px;
@@ -202,9 +230,12 @@
   <body>
     <div class="container">
       <h1>Google Dorks for Bug Bounty</h1>
-
       <div class="social-links">
-        <a href="https://twitter.com/TakSec" target="_blank" rel="noopener">
+        <a
+          href="https://twitter.com/ranjbarhadi"
+          target="_blank"
+          rel="noopener"
+        >
           <img
             src="https://img.shields.io/twitter/url/https/twitter.com/ranjbarhadi.svg?style=social&label=Follow%20%40ranjbarhadi"
             alt="Twitter Follow Badge"
@@ -240,6 +271,14 @@
         example2.com
       </div>
     </div>
+
+    <div id="popupWarning">
+      ⚠ Your browser may have blocked some tabs. Please allow popups for this
+      site.
+    </div>
+    <button class="open-all-btn" onclick="openAllDorks()">
+      Open All Dorks in New Tabs
+    </button>
 
     <ul id="dorkList"></ul>
 
@@ -436,6 +475,24 @@
           link.textContent = originalDork;
           link.href = updatedLink;
         });
+      }
+
+      function openAllDorks() {
+        const links = document.querySelectorAll(
+          "#dorkList li:not([style*='display: none']) .dorkLink",
+        );
+        if (links.length === 0) return;
+
+        let blocked = false;
+        links.forEach((link) => {
+          const w = window.open(link.href, "_blank");
+          if (!w || w.closed || typeof w.closed === "undefined") {
+            blocked = true;
+          }
+        });
+
+        const warning = document.getElementById("popupWarning");
+        warning.style.display = blocked ? "block" : "none";
       }
 
       fetchDorks();

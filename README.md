@@ -28,6 +28,90 @@ site:example.com inurl:?
 site:example.com inurl:&
 ```
 
+### Technology Stack
+
+```
+site:example.com ext:(php|aspx|asp|txt|jsp|html|xml)
+```
+
+### Interesting routes
+
+```
+site:example.com inurl:(unsubscribe|register|feedback|signup|join|contact|profile|user|comment|api|developer|affiliate|upload|mobile|upgrade|password|account|admin|dashboard|portal|support|help|forum|blog|news|docs)
+```
+
+### Text and Configs
+
+```
+site:example.com ext:xml ext:conf ext:cnf ext:rea ext:inf ext:rdo ext:cfa| ext:txt ext:ora ext:ini ext:env ext:sh ext:bak ext:backup ext:swp ext:old ext:~ ext:git ext:svn ext:htpasswd ext:htaccess ext:json
+```
+
+### db
+
+```
+site:domain.tld ext:sql | ext:dbf | ext:mdb | ext:log | ext:sqlitedb | ext:sqlite3 | ext:db | ext:sql.gz | ext:sql.zip
+```
+
+### Backup Files
+
+```
+site:domain.tld ext:bkf | ext:bkp | ext:bak | ext:old | ext: backup
+```
+
+### Dorks that work better w/ domain
+
+```
+site:domain.tld inurl:login | inurl:signin | intitle:Login | intitle: signin | inurl:auth
+```
+
+### Documents
+
+```
+site:domain.tld ext:doc ext:docx ext:odt ext:odf ext:rtf ext:sxw ext:osw | ext:opt ext:potx ext:oos ext: csy
+```
+
+### Web Services and APIs
+
+```
+site: domain.tld ext:action | ext:struts | ext: do
+```
+
+### Web Services and APIs
+
+```
+site:domain.tld filetype:wsdl | filetype:WSDL | ext:svc | inurl:wsdl | Filetype: ?wsdl | inurl:asmx?wsdl | inurl:jws?wsdl | intitle:_vti_bin/site:domain.tld inurl:_vti_bin | inurl:service | inurl:api | inurl:soap | inurl:rest | inurl:v1 | inurl:v2 | inurl:v3
+```
+
+### Config
+
+```
+site:domain.tld filetype:config
+```
+
+### Subdomains
+
+```
+site:*.domain.tld
+```
+
+### Wildcard Subdomains
+
+```
+site:*.*.domain.tld
+```
+
+# links and titles containing domain
+
+```
+Linke: domain.tld
+```
+
+# inurl and intitle containing domain defaults
+
+```
+site:.domain.tld intitle: "Welcome to Nginx"
+```
+
 ### API Endpoints
 
 ```
